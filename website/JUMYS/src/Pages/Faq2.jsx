@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
-import FAQItem from './Faqitem';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Fotter';
 
+const FAQItem = ({ question, answer, isOpen, onToggle }) => {
+  return (
+    <div className="border-b border-gray-200 py-4">
+      <div
+        className="flex justify-between items-center cursor-pointer"
+        onClick={onToggle}
+      >
+        <h3 className="text-sm font-medium">{question}</h3>
+        <span className="text-xl font-bold">{isOpen ? '-' : '+'}</span>
+      </div>
+      {isOpen && <p className="mt-2 text-gray-600">{answer}</p>}
+    </div>
+  );
+};
 
 const FAQ = () => {
-
   const [openIndex, setOpenIndex] = useState(null);
 
   const faqData = [
@@ -15,15 +27,15 @@ const FAQ = () => {
     },
     {
       question: "I Now See The Longer Delivery Time Of (A Part Of) My Order. How Can I Cancel It?",
-      answer: "If the order has a longer delivery time than you had previously seen, it is of course possible to cancel (a part of) the order. For this you can contact our customer service. They will cancel the order for you. The purchase amount will be back on your bank account within two working days. When an order has already been shipped, it can no longer be cancelled"
+      answer: "If the order has a longer delivery time than you had previously seen, it is of course possible to cancel (a part of) the order. For this you can contact our customer service. They will cancel the order for you. The purchase amount will be back on your bank account within two working days. When an order has already been shipped, it can no longer be cancelled."
     },
     {
       question: "When Will I Receive The Invoice For My Order?",
-      answer: "When you have paid for the order, you will not automatically receive an invoice for your order. If you wish to receive an invoice, this can be done in two ways.The first way is through your account at our store. When you log in to your account you can see your orders and download the invoice."
+      answer: "When you have paid for the order, you will not automatically receive an invoice for your order. If you wish to receive an invoice, this can be done in two ways. The first way is through your account at our store. When you log in to your account you can see your orders and download the invoice."
     },
     {
       question: "How Long Will My Order Take To Be Delivered?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut pretium libero, non viverra nisl. Maecenas rhoncus erat eget vehicula tempor. Mauris sollicitudin, tellus nec feugiat elementum, ante sapien sagittis sapien, non convallis velit orci quis nisi. In egestas, mauris sit amet pellentesque sollicitudin"
+      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut pretium libero, non viverra nisl. Maecenas rhoncus erat eget vehicula tempor. Mauris sollicitudin, tellus nec feugiat elementum, ante sapien sagittis sapien, non convallis velit orci quis nisi. In egestas, mauris sit amet pellentesque sollicitudin."
     },
     {
       question: "Do I Need To Create An Account To Place An Order?",
@@ -43,7 +55,7 @@ const FAQ = () => {
     <>
       <Navbar />
       <div className="max-w-2xl mx-auto my-8">
-        <h1 className="text-4xl font-bold font-serif mb-4">Frequently Asked Questions.</h1>
+        <h1 className="text-4xl font-bold font-serif mb-4">Frequently Asked Questions</h1>
         {faqData.map((item, index) => (
           <FAQItem
             key={index}
@@ -52,7 +64,6 @@ const FAQ = () => {
             isOpen={openIndex === index}
             onToggle={() => handleToggle(index)}
           />
-
         ))}
       </div>
       <Footer/>

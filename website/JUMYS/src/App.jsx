@@ -1,11 +1,11 @@
 import React from 'react';
 // import WishlistItem from './components/WishlistItem';
-import Home from './Pages/Home';
+// import Home from './Pages/Home';
 // import Card from './components/Card';
 // import Navbar from './components/Navbar';
 // import Footer from './components/Fotter';
 // import Page404 from './Pages/Page404';
-// import FAQ from './Pages/Faq2';
+import FAQ from './Pages/Faq2';
 // import Login from './Pages/login';
 // import Register from './Pages/Register';
 // import Contact from './Pages/Contact';
@@ -21,7 +21,7 @@ function App() {
       <Card />
    </div>  */}
    {/* <Page404/> */}
-   {/* <FAQ/> */}
+   <FAQ/>
    {/* <Login/> */}
    {/* <Register/> */}
    {/* <WishlistItem/> */}
